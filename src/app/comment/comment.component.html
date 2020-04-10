@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="comment-title col-md-12">
+        <label for="comment-box" class="comment-title">添加新评论...</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="_secondary">
+            <div class="form" style="margin-top: 10px; margin-bottom: 20px">
+                <button class="post" (click)="onSubmit(user.value, content.value)">发送</button>
+                <input #user id="name" placeholder="输入你的名字..." value="{{username}}" [disabled]="username" required>
+                <textarea #content id="comment-box" class="_twemoji_textarea"  rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 20px">
+    <div class="comment-count col-md-4">评论 ({{commentPageInfo.total}})</div>
+    <div class="col-md-3 offset-5">
+        <button class="switchButton" (click)="orderSwitch()" style="float: right">
+            <i class="fa fa-exchange" aria-hidden="true"></i>
+            {{order}}
+        </button>
+    </div>
+</div>
+
+<div class="comments">
+    <div class="comment" *ngFor="let comment of commentPageInfo.list">
+        <div class="row">
+            <div class="col-md-1">
+                <img
+                        *ngIf="!comment.user.photoFileName"
+                        class="img" src="../../assets/img/cover.jpeg" />
+                <img
+                        *ngIf="comment.user.photoFileName"
+                        class="img"
+                        src="../../assets/{{comment.user.photoPath}}/{{comment.user.photoFileName}}.{{comment.user.photoContentType}}" />
+            </div>
+            <div class="col-md-1">
+                {{comment.user.username}}
+            </div>
+            <div class="col-md-2 offset-8">
+                {{comment.releaseTime}}
+            </div>
+
+            <div class="col-md-10 offset-1">
+                {{comment.content}}
+            </div>
+
+            <div class="col-md-10 offset-1">
+                <button class="item-button"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{comment.likeNum}}</button>
+                <button class="item-button"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> 0</button>
+                <button class="item-button"> <i class="fa fa-comments" aria-hidden="true"></i> 回复</button>
+                <button class="item-button"> <i class="fa fa-flag" aria-hidden="true"></i> 举报</button>
+            </div>
+        </div>
+    </div>
+</div>

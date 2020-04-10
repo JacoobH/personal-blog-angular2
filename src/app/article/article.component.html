@@ -1,0 +1,83 @@
+<div class="view intro jarallax"
+     style="background-image: url(https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg); background-attachment: fixed; height: 660px;">
+    <div class="full-bg-img mask rgba-white-light">
+        <div class="container">
+            <div class="d-flex align-items-center d-flex justify-content-center" style="height: 660px">
+                <div class="row mt-5">
+                    <div class="col-md-12 wow fadeIn mb-3">
+                        <div class="intro-info-content text-center">
+                            <h2 class="h1 display-1 mb-2 wow fadeInDown" data-wow-delay="0.3s">个人 <a
+                                    class="indigo-text font-bold">博客</a>
+                            </h2>
+                            <h5 class="font-up mb-3 mt-1 font-bold wow fadeIn" data-wow-delay="0.4s">Angular & Springboot</h5>
+                            <a mdbBtn color="light-blue" size="lg" class="wow fadeIn waves-light" mdbWavesEffect
+                               data-wow-delay="0.4s">Personal</a>
+                            <a mdbBtn color="indigo" size="lg" class="wow fadeIn waves-light" mdbWavesEffect
+                               data-wow-delay="0.4s"> Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngFor="let article of articlePageInfo.list; let i=index">
+    <div *ngIf="i%2 === 0" class="container">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-12 text-center mb-5">
+                <h2 class="h1 font-bold light-blue-text my-5">{{article.title}}</h2>
+                <h4 class="mb-3 mt-1 white-text font-bold wow fadeIn" data-wow-delay="0.4s">
+                    发布时间：{{article.releaseTime}}
+                </h4>
+                <p align="justify" [innerHTML]="article.content | slice:0:2000">
+
+                </p>
+                <a class="effect1" routerLink="/blog/article-detail/{{article.id}}">
+                    查看全文 !
+                    <span class="bg"></span>
+                </a>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <div *ngIf="i%2 === 1" class="view intro jarallax"
+         style="background-image: url(../../assets/img/article_bg_imgs/bg{{i%4}}.jpg);background-size:100% 100%;  background-attachment: fixed; min-height: 900px; color: #fff;">
+        <div class="full-bg-img mask rgba-purple-slight">
+            <div class="container">
+                <div class="d-flex align-items-center d-flex justify-content-center" style="height: 700px">
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-5">
+                            <h2 class="h1 font-bold light-blue-text my-5">{{article.title}}</h2>
+                            <h4 class="mb-3 mt-1 white-text font-bold wow fadeIn" data-wow-delay="0.4s">
+                                发布时间：{{article.releaseTime}}
+                            </h4>
+                            <p align="justify" [innerHTML]="article.content | slice:0:1000">
+
+                            </p>
+                            <a class="effect2" routerLink="/blog/article-detail/{{article.id}}">
+                                查看全文 !
+                                <span class="bg"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!articlePageInfo.isLastPage" class="container">
+    <!--Grid row-->
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-md-12 text-center my-5">
+            <button (click)="getMore()">点击查看更多...</button>
+        </div>
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+</div>

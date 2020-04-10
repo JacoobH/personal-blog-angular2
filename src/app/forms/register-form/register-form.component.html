@@ -1,0 +1,27 @@
+<div id="login-box">
+    <div class="left">
+        <h1>注册</h1>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <input type="text" formControlName="username" placeholder="用户名*"/>
+            <input type="text" formControlName="email" placeholder="电子邮箱" />
+            <input type="password" formControlName="password" placeholder="密码*"/>
+            <input type="password" formControlName="rePassword" placeholder="再次输入密码*"/>
+            <input
+                    type="submit"
+                    [disabled]="username.errors?.required || password.errors?.required || rePassword.errors?.required"
+                    value="点击注册" />
+        </form>
+
+
+    </div>
+
+    <div class="right">
+        <span class="loginwith">Sign in with<br />社交帐户</span>
+
+        <button class="social-signin facebook">facebook登录</button>
+        <button class="social-signin twitter">Twitter登录</button>
+        <button class="social-signin google">Google+登录</button>
+    </div>
+    <div class="or">或</div>
+</div>

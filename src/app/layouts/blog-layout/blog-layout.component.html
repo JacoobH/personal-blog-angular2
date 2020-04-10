@@ -1,0 +1,106 @@
+<!--<div class="main-content">-->
+    <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash;标题栏&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+                <!--<app-blog-navbar></app-blog-navbar>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;内容&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--&lt;!&ndash;侧边栏&ndash;&gt;-->
+            <!--<div id="sidebar" class="col-md-3">-->
+                <!--<app-blog-sidebar></app-blog-sidebar>-->
+            <!--</div>-->
+            <!--<div class="col-md-9">-->
+                <!--<router-outlet></router-outlet>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="wrapper">
+    <!--侧边栏-->
+    <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+        <app-blog-sidebar></app-blog-sidebar>
+        <!--<div class="sidebar-background" style="background-image: url(../../../assets/img/sidebar-4.jpg)"></div>-->
+    </div>
+    <!--主界面-->
+    <div class="main-panel">
+        <app-blog-navbar></app-blog-navbar>
+
+        <div [@routeAnimations]="prepareRoute(outlet)" >
+            <router-outlet #outlet="outlet"></router-outlet>
+        </div>
+
+        <div *ngIf="isMaps('maps')">
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+    <!--小齿轮-->
+    <!--<div class="fixed-plugin">-->
+        <!--<div class="dropdown show-dropdown open show">-->
+            <!--<a href="#" data-toggle="dropdown" aria-expanded="true">-->
+                <!--<i class="fa fa-cog fa-2x"> </i>-->
+            <!--</a>-->
+            <!--<ul class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; top: 41px; left: -231px; will-change: top, left;">-->
+                <!--<li class="header-title">侧边栏底色</li>-->
+                <!--<li class="adjustments-line">-->
+                    <!--<a href="javascript:void(0)" class="switch-trigger active-color">-->
+                        <!--<div class="ml-auto mr-auto">-->
+                            <!--<span class="badge filter badge-purple" data-color="purple"></span>-->
+                            <!--<span class="badge filter badge-azure" data-color="azure"></span>-->
+                            <!--<span class="badge filter badge-green" data-color="green"></span>-->
+                            <!--<span class="badge filter badge-orange" data-color="orange"></span>-->
+                            <!--<span class="badge filter badge-danger active" data-color="danger"></span>-->
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                        <!--<div class="ripple-container"></div></a>-->
+                <!--</li>-->
+                <!--<li class="header-title">背景图片</li>-->
+                <!--<li>-->
+                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
+                        <!--<img src="../../../assets/img/sidebar-1.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
+                        <!--<img src="../../../assets/img/sidebar-2.jpg" alt="">-->
+                        <!--<div class="ripple-container"></div></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
+                        <!--<img src="../../../assets/img/sidebar-3.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="active">-->
+                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
+                        <!--<img src="../../../assets/img/sidebar-4.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="button-container">-->
+                    <!--<div>-->
+                        <!--<button class="btn btn-info btn-block btn-fill" routerLink="/blog">-->
+                            <!--前往博客-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="button-container">-->
+                    <!--<div>-->
+                        <!--<button class="btn btn-warning btn-block btn-fill" data-toggle="modal" data-target="#buy">-->
+                            <!--Buy Pro-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="button-container text-center" routerLinkActive="active">-->
+                    <!--<div>-->
+                        <!--<a class="btn btn-default btn-block" href="https://demos.creative-tim.com/material-dashboard-angular2/#/documentation/tutorial">-->
+                            <!--View Documentation-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

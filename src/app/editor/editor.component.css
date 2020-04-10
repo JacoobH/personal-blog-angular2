@@ -1,0 +1,50 @@
+.head-bar{
+    margin: 0 0 13px 0;
+}
+.action-bar{
+    border: 1px solid #9A9A9A;
+    width: 83%;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.btn-hover {
+    float: right;
+    margin-left: 3px;
+    width: 15%;
+    height: 100%;
+    padding: 3px 0;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 500px;
+}

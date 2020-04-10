@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">个人博客 · 博文</h4>
+                        <p class="card-category">personal blog · new blog article</p>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="head-bar">
+                            <input class="action-bar"
+                                   type="text"
+                                   placeholder="请输入标题..."
+                                   [(ngModel)]="article.title"
+                                   autofocus/>
+                            <button class="btn-hover color-2" (click)="submit()"><i class="fa fa-paper-plane"></i> 提交</button>
+                        </div>
+
+                        <!--<ckeditor [editor]="Editor" [config]="config" [(ngModel)]="article.content"></ckeditor>-->
+                        <angular-editor [(ngModel)]="article.content" [config]="config"></angular-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row justify-content-center bg-light" style="height: 550px; border-radius: 6px">
+        <div class="align-self-center" style="text-align: center">
+            <div class="page">
+                <div class="page__demo">
+                    <form class="search" [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+                        <div class="a-field search__field">
+                            <input
+                                    type="text"
+                                    id="username"
+                                    class="r-text-field a-field__input search__input"
+                                    formControlName="username"
+                                    placeholder="必填" required>
+                            <label class="a-field__label-wrap search__hint" for="username">
+                                <span class="a-field__label"><i class="fa fa-user" aria-hidden="true"></i> 用户名</span>
+                            </label>
+                        </div>
+
+                        <div class="a-field search__field" style="margin-top: 45px">
+                            <input
+                                    type="password"
+                                    id="password"
+                                    class="r-text-field a-field__input search__input"
+                                    formControlName="password"
+                                    placeholder="必填" required>
+                            <label class="a-field__label-wrap search__hint" for="password">
+                                <span class="a-field__label"><i class="fa fa-key" aria-hidden="true"></i> 密码</span>
+                            </label>
+                        </div>
+
+                        <button class="r-button search__button search__submit" type="submit">
+                            <i style="font-size: 30px" class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </form>
+
+                    <label style="border-bottom: 1px solid gray; margin: 5px;padding: 6px; width: 66.66%;">
+                        <input type="checkbox"> 记住我的 ID
+                    </label><br>
+
+                    <span class="page__hint"><a href="">忘记了您的 ID 或密码？</a></span><br>
+                    <span class="page__hint">没有帐户？ <a href="">立即创建您的账户</a></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="container">-->
+<!--<div class="row justify-content-center bg-light" style="height: 550px">-->
+<!--<div class="align-self-center">-->
+<!--<form [formGroup]="logInForm" (ngSubmit)="onSubmit()">-->
+
+<!--<label>-->
+<!--<i class="fa fa-user" aria-hidden="true"></i> 用户名: <br>-->
+<!--<input class="username" type="text" formControlName="username" required>-->
+<!--</label><br>-->
+
+<!--<label>-->
+<!--<i class="fa fa-key" aria-hidden="true"></i> 密码: <br>-->
+<!--<input type="password" formControlName="password" required>-->
+<!--</label><br>-->
+<!--<label style="border-bottom: 1px solid gray">-->
+<!--<input type="checkbox">-->
+<!--记住用户名-->
+<!--</label><br>-->
+<!--<button type="submit" [disabled]="!logInForm.valid">Submit</button>-->
+<!--<br>-->
+<!--&lt;!&ndash;<p>&ndash;&gt;-->
+<!--&lt;!&ndash;Form Status: {{ logInForm.status }}&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

@@ -1,0 +1,148 @@
+<!--<div id="card" class="row">-->
+    <!--<div class="col md-12"><div class="card card-profile">-->
+        <!--<div class="card-avatar">-->
+            <!--<a href="javascript:void(0)">-->
+                <!--<img class="img" src="../../../assets/img/faces/cartman.png" />-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="card-body">-->
+            <!--<h6 class="card-category text-gray">软件工程1602 / 201612037</h6>-->
+            <!--<h4 class="card-title">贾宏宇</h4>-->
+            <!--<p class="card-description">-->
+                <!--毕业设计...-->
+            <!--</p>-->
+            <!--<a href="javascript:void(0)" class="btn btn-danger btn-round">订阅</a>-->
+        <!--</div>-->
+    <!--</div></div>-->
+<!--</div>-->
+
+<!--<div id="link" class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<div class="channel">-->
+            <!--<small>欢迎关注我的频道</small>-->
+            <!--<div class="buttons">-->
+                <!--<button class="btn-hover color-9"><i class="fa fa-twitter"></i></button>-->
+                <!--<button class="btn-hover color-8"><i class="fa fa-github"></i></button>-->
+                <!--<button class="btn-hover color-4"><i class="fa fa-google"></i></button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div id="nav" class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<ul class="options">-->
+            <!--<li *ngFor="let option of options"-->
+                <!--[class.selected]="option === selectedOption"-->
+                <!--(click)="onSelect(option)">-->
+                <!--<a routerLink="{{option.path}}"><i class="{{option.icon}}"></i> {{option.title}}</a>-->
+
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="logo">-->
+    <!--<a href="##" class="simple-text">-->
+        <!--<div class="logo-img">-->
+            <!--<img src="../../../assets/img/angular2-logo-red.png"/>-->
+        <!--</div>-->
+        <!--个人博客-->
+    <!--</a>-->
+<!--</div>-->
+
+<div class="sidebar-wrapper">
+    <div *ngIf="isMobileMenu()">
+        <form class="navbar-form">
+          <span class="bmd-form-group">
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                <i class="material-icons">search</i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </span>
+        </form>
+        <ul class="nav navbar-nav nav-mobile-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">
+                    <i class="material-icons">dashboard</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">Stats</span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">notifications</i>
+                    <span class="notification">5</span>
+                    <p>
+                        <span class="d-lg-none d-md-block">Some Actions</span>
+                    </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                    <a class="dropdown-item" href="#">Another Notification</a>
+                    <a class="dropdown-item" href="#">Another One</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">
+                    <i class="material-icons">person</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">Account</span>
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="card" style="margin-top: 51px">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <a href="javascript:void(0)">
+                    <img class="img" src="../../../assets/img/faces/cartman.png" />
+                </a>
+            </div>
+            <div class="card-body">
+                <h6 class="card-category text-gray">软件工程1602 / 201612037</h6>
+                <h4 class="card-title">贾宏宇</h4>
+                <p class="card-description">
+                    欢迎订阅我的频道
+                </p>
+
+                <div class="buttons">
+                    <a href="https://twitter.com/BFNJacob"><button class="btn-hover color-9"><i class="fa fa-twitter"></i></button></a>
+                    <a href="https://github.com/JacoobH"><button class="btn-hover color-8"><i class="fa fa-github"></i></button></a>
+                    <a href="https://www.instagram.com/jnoideal/"><button class="btn-hover color-7"><i class="fa fa-instagram"></i></button></a>
+                </div>
+                <!--<a href="javascript:void(0)" class="btn btn-danger btn-round">订阅</a>-->
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="channel">-->
+        <!--<small>欢迎关注我的频道</small>-->
+        <!--<div class="buttons">-->
+            <!--<button class="btn-hover color-9"><i class="fa fa-twitter"></i></button>-->
+            <!--<button class="btn-hover color-8"><i class="fa fa-github"></i></button>-->
+            <!--<button class="btn-hover color-4"><i class="fa fa-google"></i></button>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+
+    <!--<div *ngIf="fuck">-->
+        <!--go fuck yourself-->
+    <!--</div>-->
+</div>

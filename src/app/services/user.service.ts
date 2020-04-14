@@ -18,6 +18,10 @@ export class UserService {
       return this.http.post<User>(`${this.userUrl}/add`, user, this.httpOptions);
   }
 
+  removeUser(user: User): Observable<User> {
+      return this.http.post<User>(`${this.userUrl}/remove`, user, this.httpOptions);
+  }
+
   getUserWithUsername(username: string): Observable<User>{
       return this.http.get<User>(`${this.userUrl}/getUserByUsername?username=${username}`);
   }

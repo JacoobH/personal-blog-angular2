@@ -57,4 +57,34 @@
             </div>
         </div>
     </div>
+    <div>
+        <label>
+            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (click)="pageSizeChanged()">
+                <option [ngValue]="5">每页5行</option>
+                <option [ngValue]="10">每页10行</option>
+                <option [ngValue]="20">每页20行</option>
+            </select>
+        </label>
+
+        <span>正在显示第 {{commentPageInfo.startRow}} - {{commentPageInfo.endRow}} 行，共{{commentPageInfo.total}} 行</span>
+
+        <ul class="pagination">
+            <li>
+                <button [disabled]="commentPageInfo.isFirstPage"
+                        (click)="pageChanged(commentPageInfo.prePage)">
+                    «
+                </button>
+            </li>
+            <li *ngFor="let navigatepageNums of commentPageInfo.navigatepageNums"
+                (click)="pageChanged(navigatepageNums)">
+                <button [class.active]="navigatepageNums === commentPageInfo.pageNum">{{navigatepageNums}}</button>
+            </li>
+            <li>
+                <button [disabled]="commentPageInfo.isLastPage"
+                        (click)="pageChanged(commentPageInfo.nextPage)">
+                    »
+                </button>
+            </li>
+        </ul>
+    </div>
 </div>

@@ -99,5 +99,13 @@ export class CommentComponent implements OnInit {
         this.commentService.getListOrderByLikeNum(pageNo, pageSize, aid).subscribe(pageInfo => this.commentPageInfo = pageInfo);
   }
 
+    pageChanged(navigatePageNum: number) {
+        this.pageNo = navigatePageNum;
+        this.refresh(this.pageNo, this.pageSize, this.aid);
+    }
+
+    pageSizeChanged() {
+        this.refresh(this.pageNo,this.pageSize, this.aid);
+    }
 
 }

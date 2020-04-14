@@ -374,3 +374,39 @@ ul.messages li p{
     border-bottom: 1px solid gray;
     margin-bottom: 10px;
 }
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+
+    float: right;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li button {
+    margin-right: 3px;
+    background-color: white;
+    color: black;
+    float: left;
+    padding: 6px 22px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 400;
+
+}
+
+ul.pagination li button.active {
+    background-color: #e53935;
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li button:hover:not(.active) {background-color: #ddd;}
+
+.custom-select{
+    padding: 5px;
+    margin-right: 20px;
+}

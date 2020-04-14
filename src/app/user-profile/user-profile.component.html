@@ -12,12 +12,12 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="用户名 (不可变更)" value="{{username}}" disabled>
+                                        <input matInput placeholder="用户名 (不可变更)" value="{{user.username}}" disabled>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput type="password" placeholder="密码" value="{{password}}" required>
+                                        <input matInput type="password" placeholder="密码" value="{{user.password}}" required>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
@@ -87,20 +87,42 @@
                 <div class="card card-profile">
                     <div class="card-avatar">
                         <a href="javascript:void(0)">
-                            <img *ngIf="photoFileName != ''" class="img" src="../../assets/{{photoPath}}/{{photoFileName}}.{{photoContentType}}" />
-                            <img *ngIf="photoFileName == ''" class="img" src="../../assets/img/faces/mysterion.png" />
+                            <img *ngIf="user.photoFileName != ''" class="img" src="../../assets/{{user.photoPath}}/{{user.photoFileName}}.{{user.photoContentType}}" />
+                            <img *ngIf="user.photoFileName == ''" class="img" src="../../assets/img/faces/mysterion.png" />
                         </a>
                     </div>
                     <div class="card-body">
                         <h6 class="card-category text-gray">201612037 / 软件1602</h6>
-                        <h4 class="card-title">{{username}}</h4>
+                        <h4 class="card-title">{{user.username}}</h4>
                         <p class="card-description">
                             毕业设计《个人博客》0.0.1b
                         </p>
-                        <a href="javascript:void(0)" class="btn btn-danger btn-round">订阅</a>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round" data-toggle="modal" data-target="#delete">删除用户</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- 删除用户 -->
+<div class="modal modal-angular fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="margin-top">
+                    你确定吗
+                </h4>
+                <div class="separator"></div>
+                <p class="alert-text">如果您不阅读本文，将会发生意想不到的坏事！</p>
+                <div class="separator"></div>
+                <p>此操作无法撤消。这将永久删除此用户（{{user.username}}）的信息与评论。
+                    请输入您的密码进行确认。</p>
+                <input #passwordInput class="password" #password_input type="password" placeholder="请输入密码">
+                <button class="delete-button"  (click)="onSubmit(password_input.value)">我了解后果，删除此用户</button>
+            </div>
+        </div>
+    </div>
+
 </div>

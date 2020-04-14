@@ -1,0 +1,25 @@
+.alert-text{
+    background-color: #f0f4c3;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.password{
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid gray;
+    padding: 5px 10px;
+}
+
+.delete-button{
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #e53935;
+    background-color: #e53935;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-top: 10px;
+}

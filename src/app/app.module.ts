@@ -27,7 +27,6 @@ import {httpInterceptorProviders} from "./http-intercepts";
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDe4PevaX5U4bWONYBZmtCKpIhVWzT-c1w'
     })

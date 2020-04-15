@@ -7,6 +7,8 @@ import {ArticleService} from "../services/article.service";
 import {Article} from "../models/article";
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import {NotificationService} from "../services/notification.service";
+import {Tag} from "../models/tag";
+import {TagService} from "../services/tag.service";
 @Component({
     selector: 'app-upgrade',
     templateUrl: './editor.component.html',
@@ -19,6 +21,18 @@ export class EditorComponent implements OnInit {
     //     placeholder: '在这里输入内容...',
     //
     // };
+    tags: Tag[] = [
+        {
+            id: 0,
+            tag: 'Angular'
+        }, {
+            id: 1,
+            tag: 'aaa'
+        }, {
+            id: 2,
+            tag: 'cccc'
+        }
+    ];
     config: AngularEditorConfig = {
         editable: true,
         spellcheck: true,
@@ -53,7 +67,8 @@ export class EditorComponent implements OnInit {
         private route: ActivatedRoute,
         private articleService: ArticleService,
         private location: Location,
-        private notificationService: NotificationService) {
+        private notificationService: NotificationService,
+        private tagService: TagService) {
         this.article = {
             id: null,
             title: '',
@@ -76,12 +91,19 @@ export class EditorComponent implements OnInit {
             .subscribe(article => this.article = article);
     }
 
+    addNewArticle(){
+        this.articleService.addArticle(this.article)
+            .subscribe(
+                article => this.tagService.addTags(article,this.tags).subscribe(
+                    ()=>this.notificationService.showNotification('bottom','right','success','发布成功'),
+                    ()=>this.notificationService.showNotification('bottom','right','success','发布成功/标签错误')),
+                () => this.notificationService.showNotification('bottom','right','warning','发布失败'))
+    }
+
+
     submit () {
         if (this.isEmpty){
-            this.articleService.addArticle(this.article)
-                .subscribe(() =>
-                    this.notificationService.showNotification('bottom','right','success','发布成功'),
-                    () => this.notificationService.showNotification('bottom','right','warning','发布失败'))
+            this.addNewArticle();
         }
         else {
             this.articleService.modifyArticle(this.article)

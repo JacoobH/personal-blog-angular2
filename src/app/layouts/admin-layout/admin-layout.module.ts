@@ -19,6 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 // import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import {TagInputModule} from "ngx-chips";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    AngularEditorModule
+    AngularEditorModule,
+    TagInputModule,
     // CKEditorModule,
   ],
   declarations: [

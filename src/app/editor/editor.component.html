@@ -17,7 +17,7 @@
                                    autofocus/>
                             <button class="btn-hover color-2" (click)="submit()"><i class="fa fa-paper-plane"></i> 提交</button>
                         </div>
-
+                        <tag-input [(ngModel)]='tags' [identifyBy]="'id'" [displayBy]="'tag'" [maxItems]='5' placeholder="Enter添加新标签" secondaryPlaceholder="最多五个标签"></tag-input>
                         <!--<ckeditor [editor]="Editor" [config]="config" [(ngModel)]="article.content"></ckeditor>-->
                         <angular-editor [(ngModel)]="article.content" [config]="config"></angular-editor>
                     </div>

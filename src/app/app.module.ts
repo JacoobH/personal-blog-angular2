@@ -15,6 +15,8 @@ import {BlogNavbarComponent} from "./blog-components/blog-navbar/blog-navbar.com
 import {BlogSidebarComponent} from "./blog-components/blog-sidebar/blog-sidebar.component";
 import {BlogLayoutComponent} from "./layouts/blog-layout/blog-layout.component";
 import {httpInterceptorProviders} from "./http-intercepts";
+import { UserListComponent } from './user-list/user-list.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import {httpInterceptorProviders} from "./http-intercepts";
     BlogNavbarComponent,
     BlogSidebarComponent,
     BlogLayoutComponent,
+
+
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CommentPageInfo} from "../models/comment-page-info";
 import {Comment} from "../models/comment";
+import {Article} from "../models/article";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,12 @@ export class CommentService {
         return this.http.post<Comment>(`${this.commentsUrl}/add`,comment,this.httpOptions);
     }
 
+    removeComment (comment: Comment): Observable<Comment> {
+        return this.http.post<Comment>(`${this.commentsUrl}/remove`, comment, this.httpOptions);
+    }
+
     getListOrderByLikeNum (pageNo: number, pageSize: number, aid: number): Observable<CommentPageInfo> {
         return this.http.get<CommentPageInfo>(`${this.commentsUrl}/getListByArticle?pageNo=${pageNo}&pageSize=${pageSize}&aid=${aid}`);
     }
+
 }

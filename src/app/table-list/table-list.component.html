@@ -54,7 +54,7 @@
                                       <td>{{article.releaseTime}}</td>
                                       <td>
                                           <button class="tags" ><i class="fa fa-tags" aria-hidden="true"></i></button>
-                                          <button class="comments"><i class="fa fa-comments" aria-hidden="true"></i></button>
+                                          <button class="comments" routerLink="/comment-list/{{article.id}}"><i class="fa fa-comments" aria-hidden="true"></i></button>
                                           <button class="remove" (click)="removeArticle(article)"><i class="fa fa-times" aria-hidden="true"></i></button>
                                       </td>
                                   </tr>

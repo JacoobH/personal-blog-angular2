@@ -8,11 +8,15 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { EditorComponent } from '../../editor/editor.component';
+import {UserListComponent} from "../../user-list/user-list.component";
+import {CommentListComponent} from "../../comment-list/comment-list.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
+    { path: 'user-list',     component: UserListComponent },
+    { path: 'comment-list/:id',     component: CommentListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },

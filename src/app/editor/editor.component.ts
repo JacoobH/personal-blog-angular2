@@ -21,18 +21,7 @@ export class EditorComponent implements OnInit {
     //     placeholder: '在这里输入内容...',
     //
     // };
-    tags: Tag[] = [
-        {
-            id: 0,
-            tag: 'Angular'
-        }, {
-            id: 1,
-            tag: 'aaa'
-        }, {
-            id: 2,
-            tag: 'cccc'
-        }
-    ];
+    tags: Tag[] = [];
     config: AngularEditorConfig = {
         editable: true,
         spellcheck: true,
@@ -81,14 +70,15 @@ export class EditorComponent implements OnInit {
     ngOnInit() {
         const id = +this.route.snapshot.paramMap.get('id');
         if (id !== -1){
-            this.getArticleWithId(id)
+            this.getArticleAndTagData(id)
         }
     }
 
-    getArticleWithId(id: number): void {
+    getArticleAndTagData(id: number): void {
         this.isEmpty = false;
         this.articleService.getArticleWithId(id)
             .subscribe(article => this.article = article);
+        this.tagService.getListByWithArticle(id).subscribe(tags => this.tags = tags);
     }
 
     addNewArticle(){
@@ -107,8 +97,14 @@ export class EditorComponent implements OnInit {
         }
         else {
             this.articleService.modifyArticle(this.article)
-                .subscribe(() => this.notificationService.showNotification('bottom','right','success','修改成功'),
-                    () => this.notificationService.showNotification('bottom','right','warning','修改失败'))
+                .subscribe(
+                    () => this.notificationService.showNotification('bottom','right','success','文章修改成功'),
+                    () => this.notificationService.showNotification('bottom','right','warning','文章修改失败')
+                );
+            this.tagService.addTags(this.article, this.tags).subscribe(
+                () => this.notificationService.showNotification('bottom','right','success','标签修改成功'),
+                () => this.notificationService.showNotification('bottom','right','warning','标签修改失败')
+            )
         }
     }
 }

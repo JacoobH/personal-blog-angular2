@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {User} from "../models/user";
 import {Observable} from "rxjs";
 import {Article} from "../models/article";
+import {ArticlePageInfo} from "../models/article-page-info";
+import {UserPageInfo} from "../models/user-page-info";
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +27,10 @@ export class UserService {
   getUserWithUsername(username: string): Observable<User>{
       return this.http.get<User>(`${this.userUrl}/getUserByUsername?username=${username}`);
   }
+
+    getUsersWithSearchText (pageNo: number, pageSize: number, term: string): Observable<UserPageInfo> {
+        const options = term ?
+            { params: new HttpParams().set('searchText', term) } : {};
+        return this.http.get<UserPageInfo>(`${this.userUrl}/getListBySearchText?pageNo=${pageNo}&pageSize=${pageSize}`,options);
+    }
 }

@@ -3,7 +3,7 @@
 }
 .action-bar{
     border: 1px solid #9A9A9A;
-    width: 83%;
+    width: 68%;
     border-radius: 3px;
     padding: 2px;
 }
@@ -44,7 +44,12 @@
     background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
     box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 }
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
 
 :host ::ng-deep .ck-editor__editable_inline {
     min-height: 500px;
 }
+

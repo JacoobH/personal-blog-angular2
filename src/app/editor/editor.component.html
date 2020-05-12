@@ -15,6 +15,11 @@
                                    placeholder="请输入标题..."
                                    [(ngModel)]="article.title"
                                    autofocus/>
+                            <button class="btn-hover color-3"
+                                    style="float: left; margin-left:0; margin-right: 8px "
+                                    data-toggle="modal" data-target="#addTags">
+                                <i class="fa fa-tag"></i> 新标签
+                            </button>
                             <button class="btn-hover color-2" (click)="submit()"><i class="fa fa-paper-plane"></i> 提交</button>
                         </div>
                         <tag-input [(ngModel)]='tags' [identifyBy]="'id'" [displayBy]="'tag'" [maxItems]='5' placeholder="Enter添加新标签" secondaryPlaceholder="最多五个标签"></tag-input>
@@ -26,3 +31,4 @@
         </div>
     </div>
 </div>
+<app-tag [tags]="tags"></app-tag>

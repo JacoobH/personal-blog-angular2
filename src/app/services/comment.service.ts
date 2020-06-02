@@ -27,4 +27,8 @@ export class CommentService {
         return this.http.get<CommentPageInfo>(`${this.commentsUrl}/getListByArticle?pageNo=${pageNo}&pageSize=${pageSize}&aid=${aid}`);
     }
 
+    getListByUser (pageNo: number, pageSize: number, username: string): Observable<CommentPageInfo> {
+        return this.http.get<CommentPageInfo>(`${this.commentsUrl}/getListByUser?pageNo=${pageNo}&pageSize=${pageSize}&username=${username}`);
+    }
+
 }

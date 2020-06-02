@@ -10,6 +10,7 @@ import {UserService} from "./user.service";
 })
 export class AuthenticationService {
   private userUrl = 'http://localhost:8080/user';
+  private flag: boolean = true;
   userInfo: User;
   constructor(
       private http: HttpClient,
@@ -38,7 +39,19 @@ export class AuthenticationService {
                   sessionStorage.setItem('photoPath',this.userInfo.photoPath);
                   sessionStorage.setItem('photoFileName',this.userInfo.photoFileName);
                   sessionStorage.setItem('photoContentType',this.userInfo.photoContentType);
-
+                  // if (this.flag){
+                  //     localStorage.setItem('online_num','0');
+                  //     console.warn('在线人数：'+localStorage.getItem('online_num'));
+                  //     this.flag = false;
+                  // }
+                  // if (localStorage.getItem('online_num')){
+                  //     localStorage.setItem('online_num','0');
+                  //     console.warn('在线人数：'+localStorage.getItem('online_num'));
+                  // }
+                  // let online_num: number = Number(localStorage.getItem('online_num'));
+                  // online_num += 1;
+                  // localStorage.setItem('online_num',online_num.toString());
+                  // console.warn('在线人数：'+localStorage.getItem('online_num'));
                   return userData;
               }
           )

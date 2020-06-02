@@ -10,7 +10,6 @@ import {Location} from "@angular/common";
   styleUrls: ['./article-detail.component.css']
 })
 export class ArticleDetailComponent implements OnInit {
-
   article: Article;
   constructor(
       private route: ActivatedRoute,
@@ -32,7 +31,11 @@ export class ArticleDetailComponent implements OnInit {
 
   getArticleWithId(id: number): void {
       this.articleService.getArticleWithId(id)
-          .subscribe(article => this.article = article);
+          .subscribe(article => {
+              this.article = article;
+              this.article.views += 1;
+              this.articleService.modifyArticle(this.article).subscribe();
+          });
   }
 
 

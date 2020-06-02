@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import {AuthenticationService} from "../../services/authentication.service";
+import {NotificationService} from "../../services/notification.service";
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,8 +15,15 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    private username: string;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(
+        location: Location,
+        private element: ElementRef,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private notificationService: NotificationService
+    ) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -31,6 +40,21 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+    }
+
+    isUserLoggedIn(){
+        if (this.authenticationService.isUserLoggedIn()) {
+            this.username = sessionStorage.getItem('username');
+            return true;
+        }
+        else
+            return false;
+    }
+
+    logOut(){
+        this.authenticationService.logOut();
+        this.notificationService.showNotification('bottom','right','success','注销成功');
+        this.router.navigate(['/blog/article']);
     }
 
     sidebarOpen() {

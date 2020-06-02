@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticlePageInfo} from "../models/article-page-info";
+import {Article} from "../models/article";
+import {ArticleService} from "../services/article.service";
 
 @Component({
   selector: 'app-timeline',
@@ -6,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeline.component.css']
 })
 export class TimelineComponent implements OnInit {
+    pageNo = 1;
+    pageSize = 6;
+    articlePageInfo: ArticlePageInfo;
+    articles: Article[];
 
-  constructor() { }
+    constructor(private articleService: ArticleService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.refresh(this.pageNo,this.pageSize,null);
+    }
+
+    getMore(){
+        this.pageSize += this.pageSize;
+        this.refresh(this.pageNo,this.pageSize,null);
+    }
+
+    refresh(pageNo: number, pageSize: number, searchText: string){
+        this.articleService.getArticlesWithSearchText(pageNo, pageSize, searchText).subscribe(pageInfo => this.articlePageInfo = pageInfo);
+    }
 
 }

@@ -166,4 +166,16 @@ export class BlogLayoutComponent implements OnInit {
         return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
     }
 
+    onActivate(event) {
+        // 移动到顶部
+        window.scroll(0,0);
+    }
+
+    scrollTop() {
+        let top = document.getElementById('top-nav');
+        if (top != null) {
+            top.scrollIntoView();
+            top = null;
+        }
+    }
 }

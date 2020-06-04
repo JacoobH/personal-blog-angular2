@@ -103,7 +103,7 @@ ul, li {
 
 .timeline ul li .date h4 {
     background-color: #e1ccec;
-    width: 100px;
+    width: 150px;
     text-align: center;
     padding: 5px 10px;
     border-radius: 10px;
@@ -142,4 +142,11 @@ ul, li {
     width: 3px;
     left: 50%;
     background-color: #333333;
+}
+
+.more-button{
+    width: 90%;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
 }

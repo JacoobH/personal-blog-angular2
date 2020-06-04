@@ -181,3 +181,10 @@
 .effect2:hover .bg:after{
     top: 6px;
 }
+
+.more-button{
+    width: 90%;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+}

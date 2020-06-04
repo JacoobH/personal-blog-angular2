@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">评论列表</h4>
+                        <p class="card-category"> comments list</p>
+                    </div>
+                    <div class="row" style="margin: 15px 0 0 0">
+                        <div class="col-md-4">
+                            <!--<button class="add" routerLink="/editor/-1"><i class="fa fa-plus" aria-hidden="true"></i> 增加</button>-->
+                            <button class="refresh" (click)="refresh(pageNo, pageSize, searchBox.value)"><i class="fa fa-refresh" aria-hidden="true"></i> 刷新</button>
+
+                        </div>
+                        <!--<div class="col-md-3 offset-5">-->
+                            <!--<div class="form-group form-inline">-->
+                                <!--<label for="search-box">Search</label>-->
+                                <!--<input #searchBox-->
+                                       <!--id="search-box"-->
+                                       <!--class="form-control ml-2"-->
+                                       <!--type="text"-->
+                                       <!--(input)="search(searchBox.value)"-->
+                                       <!--placeholder="按用户名进行搜索"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                <th>
+                                    评论ID
+                                </th>
+                                <th>
+                                    文章ID
+                                </th>
+                                <th>
+                                    用户名
+                                </th>
+                                <th>
+                                    评论内容
+                                </th>
+                                <th>
+                                    发布时间
+                                </th>
+                                <th>
+                                    赞同数
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let comment of commentPageInfo.list">
+                                    <td>{{comment.id}}</td>
+                                    <td>{{comment.article.id}}</td>
+                                    <td>{{comment.user.username}}</td>
+                                    <td>{{comment.content}}</td>
+                                    <td>{{comment.releaseTime}}</td>
+                                    <td>{{comment.likeNum}}</td>
+                                    <td>
+                                        <!--<button class="tags" ><i class="fa fa-tags" aria-hidden="true"></i></button>-->
+                                        <!--<button class="comments"><i class="fa fa-comments" aria-hidden="true"></i></button>-->
+                                        <button class="remove" (click)="removeUser(user)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+
+                        <label>
+                            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (click)="pageSizeChanged(searchBox.value)">
+                                <option [ngValue]="5">每页5行</option>
+                                <option [ngValue]="10">每页10行</option>
+                                <option [ngValue]="20">每页20行</option>
+                            </select>
+                        </label>
+
+                        <span>正在显示第 {{commentPageInfo.startRow}} - {{commentPageInfo.endRow}} 行，共{{commentPageInfo.total}} 行</span>
+
+                        <ul class="pagination">
+                            <li>
+                                <button [disabled]="commentPageInfo.isFirstPage"
+                                        (click)="pageChanged(commentPageInfo.prePage)">
+                                    «
+                                </button>
+                            </li>
+                            <li *ngFor="let navigatepageNum of commentPageInfo.navigatepageNums"
+                                (click)="pageChanged(navigatepageNum)">
+                                <button [class.active]="navigatepageNum === commentPageInfo.pageNum">{{navigatepageNum}}</button>
+                            </li>
+                            <li>
+                                <button [disabled]="commentPageInfo.isLastPage"
+                                        (click)="pageChanged(commentPageInfo.nextPage)">
+                                    »
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

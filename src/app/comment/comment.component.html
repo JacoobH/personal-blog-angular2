@@ -9,7 +9,8 @@
         <div class="_secondary">
             <div class="form" style="margin-top: 10px; margin-bottom: 20px">
                 <button class="post" (click)="onSubmit(user.value, content.value)">发送</button>
-                <input #user id="name" placeholder="输入你的名字..." value="{{username}}" [disabled]="username" required>
+                <!--<input #user id="name" placeholder="请登录.." value="{{username}}" [disabled]="username" required>-->
+                <input #user id="name" placeholder="请登录.." value="{{username}}" disabled required>
                 <textarea #content id="comment-box" class="_twemoji_textarea"  rows="2"></textarea>
             </div>
         </div>

@@ -12,53 +12,60 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="用户名 (不可变更)" value="{{user.username}}" disabled>
+                                        <input matInput placeholder="用户名 (不可变更)" [formControl]="username">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput type="password" placeholder="密码" value="{{user.password}}" required>
+                                        <mat-label>密码</mat-label>
+                                        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                            <mat-icon></mat-icon>
+                                            <i class="fa fa-{{hide ? 'eye-slash' : 'eye'}}" aria-hidden="true"></i>
+                                        </button>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="邮件地址" type="email">
+                                        <mat-label>电子邮箱</mat-label>
+                                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="姓氏" type="text">
+                                        <input matInput placeholder="姓氏" type="text"  [formControl]="lastName">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="名字" type="text">
+                                        <input matInput placeholder="名字" type="text" [formControl]="firstName">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="地址" type="text">
+                                        <input matInput placeholder="地址" type="text"  [formControl]="address">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="城市" type="text">
+                                        <input matInput placeholder="城市" type="text" [formControl]="city">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="街道" type="text">
+                                        <input matInput placeholder="街道" type="text" [formControl]="street">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="邮政编码" type="text">
+                                        <input matInput placeholder="邮政编码" type="text" [formControl]="postalCode">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -66,7 +73,7 @@
                                 <div class="col-md-12">
                                     <label>个人介绍</label>
                                     <mat-form-field class="example-full-width">
-                                        <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                                        <textarea matInput placeholder="简单介绍下自己吧" [formControl]="introduction"></textarea>
                                     </mat-form-field>
                                     <!-- <div class="form-group">
 
@@ -77,7 +84,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">更新信息</button>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="modifyUser()">更新信息</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -115,7 +122,7 @@
                     你确定吗
                 </h4>
                 <div class="separator"></div>
-                <p class="alert-text">如果您不阅读本文，将会发生意想不到的坏事！</p>
+                <p class="alert-text">如果您不阅读本文，将会造成意想不到的后果！</p>
                 <div class="separator"></div>
                 <p>此操作无法撤消。这将永久删除此用户（{{user.username}}）的信息与评论。
                     请输入您的密码进行确认。</p>

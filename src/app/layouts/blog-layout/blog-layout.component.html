@@ -27,10 +27,9 @@
     </div>
     <!--主界面-->
     <div class="main-panel">
-        <app-blog-navbar></app-blog-navbar>
-
+        <app-blog-navbar id="top-nav"></app-blog-navbar>
         <div [@routeAnimations]="prepareRoute(outlet)" >
-            <router-outlet #outlet="outlet"></router-outlet>
+            <router-outlet #outlet="outlet" (activate)="onActivate($event)"></router-outlet>
         </div>
 
         <div *ngIf="isMaps('maps')">
@@ -39,68 +38,139 @@
     </div>
 
     <!--小齿轮-->
-    <!--<div class="fixed-plugin">-->
-        <!--<div class="dropdown show-dropdown open show">-->
-            <!--<a href="#" data-toggle="dropdown" aria-expanded="true">-->
-                <!--<i class="fa fa-cog fa-2x"> </i>-->
-            <!--</a>-->
-            <!--<ul class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; top: 41px; left: -231px; will-change: top, left;">-->
-                <!--<li class="header-title">侧边栏底色</li>-->
-                <!--<li class="adjustments-line">-->
-                    <!--<a href="javascript:void(0)" class="switch-trigger active-color">-->
-                        <!--<div class="ml-auto mr-auto">-->
-                            <!--<span class="badge filter badge-purple" data-color="purple"></span>-->
-                            <!--<span class="badge filter badge-azure" data-color="azure"></span>-->
-                            <!--<span class="badge filter badge-green" data-color="green"></span>-->
-                            <!--<span class="badge filter badge-orange" data-color="orange"></span>-->
-                            <!--<span class="badge filter badge-danger active" data-color="danger"></span>-->
+    <div class="fixed-plugin">
+        <div class="dropdown show-dropdown open show">
+            <a href="#" data-toggle="dropdown" aria-expanded="true">
+                <i class="fa fa-cog fa-2x"> </i>
+            </a>
+            <ul class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; top: 41px; left: -231px; will-change: top, left;">
+                <li class="header-title">侧边栏底色</li>
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger active-color">
+                        <div class="ml-auto mr-auto">
+                            <span class="badge filter badge-purple" data-color="purple"></span>
+                            <span class="badge filter badge-azure" data-color="azure"></span>
+                            <span class="badge filter badge-green" data-color="green"></span>
+                            <span class="badge filter badge-orange" data-color="orange"></span>
+                            <span class="badge filter badge-danger active" data-color="danger"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="ripple-container"></div></a>
+                </li>
+                <li class="header-title">背景图片</li>
+                <li>
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../../../assets/img/sidebar-1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../../../assets/img/sidebar-2.jpg" alt="">
+                        <div class="ripple-container"></div></a>
+                </li>
+                <li>
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../../../assets/img/sidebar-3.jpg" alt="">
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../../../assets/img/sidebar-4.jpg" alt="">
+                    </a>
+                </li>
+                <li class="button-container">
+                    <div>
+                        <button class="btn btn-info btn-block btn-fill" routerLink="/dashboard">
+                            前往管理端
+                        </button>
+                    </div>
+                </li>
+                <li class="button-container">
+                    <div>
+                        <button class="btn btn-warning btn-block btn-fill" data-toggle="modal" data-target="#buy">
+                            相关链接
+                        </button>
+                    </div>
+                </li>
+                <li class="button-container text-center" routerLinkActive="active">
+                    <div>
+                        <a class="btn btn-default btn-block" href="javascript:void(0)" (click)="scrollTop()">
+                            滚动到顶部
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--相关链接模态框-->
+    <div class="modal modal-angular fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="margin-top">
+                        社交帐户
+                    </h4>
+                    <div class="separator"></div>
+                    <a href="https://twitter.com/BFNJacob" class="modal-button" target="_blank">
+                        <div class="wrapper-card">
+                            <div class="image-container">
+                                <img src="./assets/img/twitter.png" alt="unloaded">
+                            </div>
+                            Twitter
+                            <div class="separator"></div>
+                            <div class="product-type">
+                                BFNJacob
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/jnoideal/" class="modal-button" target="_blank">
+                        <div class="wrapper-card">
+                            <div class="image-container image-angular-cli">
+                                <img src="./assets/img/instagram.png" alt="unloaded">
+                            </div>
+                            Instagram
+                            <div class="separator"></div>
+                            <div class="product-type">
+                                jnoideal
+                            </div>
+                        </div>
+                    </a>
+                    <h4>
+                        相关技术官网
+                    </h4>
+                    <div class="separator"></div>
+                    <a href="https://spring.io/" class="modal-button" target="_blank">
+                        <div class="image-container">
+                            <img src="./assets/img/spring-boot.png" alt="unloaded">
+                        </div>
+                        spring boot
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            spring.io
+                        </div>
+                    </a>
+                    <a href="https://angular.io" class="modal-button" target="_blank">
+                        <div class="image-container image-angular-cli">
+                            <img src="./assets/img/angular.png" alt="unloaded">
+                        </div>
+                        Angular
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            angular.io
+                        </div>
+                        <!--<div class="price">-->
+                        <!--angular.io-->
+                        <!--<span>-->
+
+                        <!--<i class="fa fa-usd" aria-hidden="true"></i>-->
+                        <!--</span>-->
                         <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="ripple-container"></div></a>-->
-                <!--</li>-->
-                <!--<li class="header-title">背景图片</li>-->
-                <!--<li>-->
-                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
-                        <!--<img src="../../../assets/img/sidebar-1.jpg" alt="">-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
-                        <!--<img src="../../../assets/img/sidebar-2.jpg" alt="">-->
-                        <!--<div class="ripple-container"></div></a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
-                        <!--<img src="../../../assets/img/sidebar-3.jpg" alt="">-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li class="active">-->
-                    <!--<a class="img-holder switch-trigger" href="javascript:void(0)">-->
-                        <!--<img src="../../../assets/img/sidebar-4.jpg" alt="">-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li class="button-container">-->
-                    <!--<div>-->
-                        <!--<button class="btn btn-info btn-block btn-fill" routerLink="/blog">-->
-                            <!--前往博客-->
-                        <!--</button>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<li class="button-container">-->
-                    <!--<div>-->
-                        <!--<button class="btn btn-warning btn-block btn-fill" data-toggle="modal" data-target="#buy">-->
-                            <!--Buy Pro-->
-                        <!--</button>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<li class="button-container text-center" routerLinkActive="active">-->
-                    <!--<div>-->
-                        <!--<a class="btn btn-default btn-block" href="https://demos.creative-tim.com/material-dashboard-angular2/#/documentation/tutorial">-->
-                            <!--View Documentation-->
-                        <!--</a>-->
-                    <!--</div>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

@@ -17,7 +17,7 @@ import {BlogLayoutComponent} from "./layouts/blog-layout/blog-layout.component";
 import {httpInterceptorProviders} from "./http-intercepts";
 import { UserListComponent } from './user-list/user-list.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
-
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   imports: [

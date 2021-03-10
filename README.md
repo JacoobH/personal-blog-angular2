@@ -4,7 +4,11 @@
     <a href="https://github.com/JacoobH/personal-blog-angular2"> <img src="https://badgen.net/github/forks/JacoobH/personal-blog-angular2?icon=github&color=4ab8a1"></a>
 </div>
 
-## :computer: 环境搭建
+| 系统介绍 |环境搭建|
+| :---: | :----: |
+| [:computer:](#computer-系统介绍)  |[:wrench:](#wrench-环境搭建)|
+
+## :computer: 系统介绍
 
 本系统采用**Spring Boot**、**Angular**框架技术进行开发，使用Windows10操作系统作为本系统运行需要的软件环境，选用分别选用Spring Boot自带的服务器和NPM服务器进行搭建。打开浏览器（本系统测试浏览器为Chrome浏览器），输入：
 http://localhost:4200
@@ -97,3 +101,4 @@ http://localhost:4200
 <div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210310185218.png"/> </div><br>
  <div align="center">图5-14 文章编辑界面</div><br>
 
+## :wrench: 环境搭建 

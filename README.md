@@ -1,4 +1,4 @@
-## :bulb: 此项目为项目《个人博客》的前端资源，
+## :bulb: 此项目为项目《个人博客》的前端，
 后台项目在https://github.com/JacoobH/personal-blog-springboot
 
 <div align="center">

@@ -102,3 +102,16 @@ http://localhost:4200
  <div align="center">图5-14 文章编辑界面</div><br>
 
 ## :wrench: 环境搭建 
+
+### 步骤1：
+<div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20191855.png"/> </div><br>
+
+### 步骤2：
+<div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192014.png"/> </div><br>
+
+### 步骤3：
+<div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192128.png"/> </div><br>
+
+### 步骤4：
+<div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192217.png"/> </div><br>
+

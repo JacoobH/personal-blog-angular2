@@ -104,14 +104,18 @@ http://localhost:4200
 ## :wrench: 环境搭建 
 
 ### 步骤1：
+从已有资源新建项目
 <div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20191855.png"/> </div><br>
 
 ### 步骤2：
+选择资源
 <div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192014.png"/> </div><br>
 
 ### 步骤3：
+一路next就行
 <div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192128.png"/> </div><br>
 
 ### 步骤4：
+配置服务器
 <div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192217.png"/> </div><br>
 

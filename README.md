@@ -122,3 +122,5 @@ http://localhost:4200
 配置服务器
 <div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20192217.png"/> </div><br>
 
+参数按图中设置即可
+<div align="center"> <img src="https://github.com/JacoobH/personal-blog-angular2/blob/master/images/angular2/Screenshot%202021-03-10%20195929.png"/> </div><br>

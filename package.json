@@ -34,7 +34,7 @@
     "@ckeditor/ckeditor5-build-classic": "^18.0.0",
     "@ckeditor/ckeditor5-upload": "^18.0.0",
     "@kolkov/angular-editor": "^1.1.1",
-    "ajv": "6.12.0",
+    "ajv": "6.12.3",
     "arrive": "2.4.1",
     "bootstrap": "4.3.1",
     "bootstrap-material-design": "4.1.2",
